@@ -2,7 +2,7 @@ import multer from "multer";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'C:\\Users\\ashok\\BackendUsingExpreesjs\\src\\public\\TEMP') ; 
+    cb(null, './public/TEMP') ; 
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
