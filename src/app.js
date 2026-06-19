@@ -6,7 +6,8 @@ const App = express() ;
 // App.use(cors())    we have live like this also here all the request can be accessed but if you want specifiaclly then 
 App.use((cors({
     origin : process.env.Cors_origin  ,   // if cors_origin=* allow all the site to access 
-    credentials: true
+    credentials: true , 
+    sameSite: "none" 
 
 }) ))
 App.use(express.json({limit:"18KB"}))  // this we used to just handle the input if it in json format 
