@@ -140,7 +140,8 @@ const LoginUser = asynchandler(async (req , res)=>{
  console.log(accessToken , refreshToken) ; 
    const option = {
      httpOnly :true ,   // here http true and secure true means only server can modify the cookies
-     secure : true  
+     secure : true  ,
+    sameSite: "none"
    }
    return res
    .status(200)
@@ -171,7 +172,8 @@ const logOutuser = asynchandler( async (req , res)=>{
    console.log("we reached here 6")
     const option = {
      httpOnly :true ,   // here http true and secure true means only server can modify the cookies
-     secure : true
+     secure : true ,
+    sameSite: "none"
    }
 console.log("we reached here 7") 
    
@@ -204,7 +206,8 @@ const AccessrefreshToken = asynchandler( async (req , res)=>{
    const {accesToken , refreshToken} = generateRefreshAndAccessTokens(currentUser._id) ; 
    const option = {
       httpOnly : true , 
-      secure : true 
+      secure : true ,
+     sameSite: "none"
    }
    return res.status(200)
              .cookie('accesToken' , accesToken , option) 
