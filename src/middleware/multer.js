@@ -1,8 +1,9 @@
 import multer from "multer";
-
+import fs from "fs";
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log("cwd =", process.cwd()); 
+    console.log( process.cwd()); 
+    console.log("TEMP exists =", fs.existsSync("./public/TEMP"));
     cb(null, './public/TEMP') ; 
   },
   filename: function (req, file, cb) {
