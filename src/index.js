@@ -12,7 +12,7 @@ ConnectDB().then(()=>{
         console.log("error while opening :" , error)
      })
    
-      App.listen(process.env.PORT  , ()=>{
+      App.listen(process.env.PORT || 4000 , ()=>{
         console.log("App listening on port no. : " , process.env.PORT) ; 
       })
 }).catch((error)=>{
