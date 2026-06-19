@@ -58,10 +58,12 @@ const registerUser = asynchandler(async (req , res)=>{
    }
    // file handling since we have used multer as a middleware it provide one class that is files 
   const avatarlocalpath =  req.files?.avatar[0]?.path ; 
+      console.log(avatarlocalpath)
 const coverImagelocalpath = req.files?.coverimage?.[0]?.path || "";
   if(!avatarlocalpath) throw new Apierror(400 , "Avatar is needed") ; 
 
  const Avatar = await uploadFileonCloudinary(avatarlocalpath) ; 
+   
  const Coverimage = coverImagelocalpath ? await uploadFileonCloudinary(coverImagelocalpath) : null ; 
  console.log(Avatar) ; 
  console.log(Coverimage) ; 
