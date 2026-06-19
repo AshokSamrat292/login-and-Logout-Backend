@@ -2,9 +2,10 @@ import multer from "multer";
 import fs from "fs";
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log( process.cwd()); 
-    console.log("TEMP exists =", fs.existsSync("./public/TEMP"));
-    cb(null, './public/TEMP') ; 
+if (!fs.existsSync("./public/TEMP")) {
+    fs.mkdirSync("./public/TEMP", { recursive: true });
+}
+  cb(null, './public/TEMP') ; 
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
